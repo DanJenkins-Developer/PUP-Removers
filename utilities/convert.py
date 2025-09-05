@@ -1,7 +1,6 @@
 # Dan Jenkins 09/04/25
 #
 # Help utility to convert python scripts to one line.
-#  
 # There's probably already a tool for this, but reinventing the wheel can be fun.
 # 
 # The initial version of this program assumes that the original script is in a format that, 
@@ -21,11 +20,11 @@ sfile = Path(args.source_file)
 tdir = Path(args.target_directory)
 
 if (not sfile.is_file()):
-    msg = "convert.py: " + str(sfile) + ": No such file" 
+    msg = f"convert.py: {str(sfile)} : No such file" 
     exit(msg)
 
 if (not tdir.is_dir()):
-    msg = "convert.py: " + str(tdir) + ": No such directory"
+    msg = f"convert.py: {str(tdir)} : No such directory"
     exit(msg)
 
 print(sfile)
