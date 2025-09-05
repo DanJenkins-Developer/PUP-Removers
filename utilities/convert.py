@@ -27,7 +27,9 @@ if (not tdir.is_dir()):
     msg = f"convert.py: {str(tdir)} : No such directory"
     exit(msg)
 
-print(sfile)
-print(tdir)
-
 # Open source file
+with sfile.open('r') as script:
+    content = script.read()
+    print(content)
+
+print(tdir)
