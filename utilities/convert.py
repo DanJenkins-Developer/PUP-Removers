@@ -29,7 +29,13 @@ if (not tdir.is_dir()):
 
 # Open source file
 with sfile.open('r') as script:
-    content = script.read()
-    print(content)
+    content = script.readlines()
 
-print(tdir)
+# Remove whitespace characters
+content = [line.strip() for line in content if line.strip() != ""]
+
+# create one line
+one_line = ' '.join(content)
+
+
+print(one_line)
