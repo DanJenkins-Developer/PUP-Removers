@@ -21,7 +21,7 @@ $shortcuts = @(
     '\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\OneLaunchChromium.lnk',
     '\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\OneLaunchUpdater.lnk',
     '\desktop\OneLaunch.lnk'
-    )
+    );
 
 # Iterate through user directories
 foreach ($folder in $userFolders) {
