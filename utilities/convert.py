@@ -31,11 +31,13 @@ if (not tdir.is_dir()):
 with sfile.open('r') as script:
     content = script.readlines()
 
-# Remove whitespace characters
-content = [line.strip() for line in content if line.strip() != ""]
+# Modify list
+content = [line.strip() for line in content if (line.strip() != "" and not line.strip().startswith("#"))]
 
-# create one line
+# create one line with space splitting them
 one_line = ' '.join(content)
 
-
-print(one_line)
+# Write out to a new file
+fname = 'tempname.ps1'
+with open(tdir / fname, 'w') as f:
+    f.write(one_line)
