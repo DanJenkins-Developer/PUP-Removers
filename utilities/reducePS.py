@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # Dan Jenkins 09/04/25
 #
 # Helper utility to convert Powershell scripts to one line to be used in Elastic response actions.
@@ -6,6 +8,8 @@
 # The initial version of this program removes white space characters and comments from scripts,
 # but otherwise assumes that the original script is in a format that, once converted 
 # into a single line, will execute correctly when passed to the -Command / -c parameter. 
+
+
 
 def lineConditionsMet(l : str):
     met = True
@@ -17,6 +21,7 @@ def lineConditionsMet(l : str):
     return met
 
 import argparse
+import os
 from pathlib import Path
 
 # Parse command line args. Source powershell script and a target directory for the reduced script are required.
@@ -55,3 +60,7 @@ with open(tdir / fname, 'w') as f:
         one_line + '\n',
         f"# execute --command \"C:\\Windows\\System32\\WindowsPowerShell\\{ver}\\powershell.exe -NoProfile -WindowStyle Hidden -Command \"{one_line}\"\""
     ])
+
+
+# print(os.path.dirname(os.path.abspath(__file__)))
+# os.chdir(os.path.dirname(os.path.abspath(__file__)))
