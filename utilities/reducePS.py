@@ -19,7 +19,6 @@ def lineConditionsMet(l : str):
     return met
 
 import argparse
-import os
 from pathlib import Path
 
 # Parse command line args. Source powershell script and a target directory for the reduced script are required.
@@ -28,19 +27,11 @@ parser.add_argument("source_file", help="Path to Powershell script.", type=str)
 parser.add_argument("target_directory", help="Target directory for the converted file.", type=str)
 args = parser.parse_args()
 
-
-# Check if the user provided arguments exist.
+# Make provided paths absolute
 sfile = Path(args.source_file).resolve()
 tdir = Path(args.target_directory).resolve()
 
-# Testing
-# print(os.getcwd())
-# print(sfile.resolve())
-# print(tdir.resolve())
-
-# print(sfile)
-# print(tdir)
-
+# Check if the user provided arguments exist.
 if (not sfile.is_file()):
     msg = f"convert.py: {str(sfile)} : No such file" 
     exit(msg)
@@ -56,7 +47,7 @@ with sfile.open('r') as script:
 # Modify list.
 content = [line.strip() for line in content if lineConditionsMet(line.strip())]
 
-# create one line with space splitting them
+# create one line with space splitting each item from contennt
 one_line = ' '.join(content)
 
 # Write out to a new file
