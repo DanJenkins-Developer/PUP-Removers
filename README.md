@@ -1,5 +1,7 @@
 Use the scripts under "pups" to remove potentially unwanted applications. Currently supporting onestart and pcappstore. 
 
+<hr>
+
 Use the reducePS tool under "utilities" to convert a powershell script to one line. 
 ```
 usage: reducePS.py [-h] source_file target_directory
