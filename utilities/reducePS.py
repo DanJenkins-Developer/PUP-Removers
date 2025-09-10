@@ -9,8 +9,6 @@
 # but otherwise assumes that the original script is in a format that, once converted 
 # into a single line, will execute correctly when passed to the -Command / -c parameter. 
 
-
-
 def lineConditionsMet(l : str):
     met = True
     if (l == "" or 
