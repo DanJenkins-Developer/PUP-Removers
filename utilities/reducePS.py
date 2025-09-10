@@ -48,10 +48,10 @@ content = [line.strip() for line in content if lineConditionsMet(line.strip())]
 one_line = ' '.join(content)
 
 # Write out to a new file
-fname = 'tempname.ps1'
+fname = 'reduced.ps1'
 with open(tdir / fname, 'w') as f:
-    vstr = 'v1.0'
+    ver = 'v1.0'
     f.writelines([
         one_line + '\n',
-        f"# execute --command \"C:\\Windows\\System32\\WindowsPowerShell\\{vstr}\\powershell.exe -NoProfile -WindowStyle Hidden -Command \"{one_line}\"\""
+        f"# execute --command \"C:\\Windows\\System32\\WindowsPowerShell\\{ver}\\powershell.exe -NoProfile -WindowStyle Hidden -Command \"{one_line}\"\""
     ])
