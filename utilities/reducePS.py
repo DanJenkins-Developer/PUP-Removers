@@ -28,9 +28,18 @@ parser.add_argument("source_file", help="Path to Powershell script.", type=str)
 parser.add_argument("target_directory", help="Target directory for the converted file.", type=str)
 args = parser.parse_args()
 
+
 # Check if the user provided arguments exist.
-sfile = Path(args.source_file)
-tdir = Path(args.target_directory)
+sfile = Path(args.source_file).resolve()
+tdir = Path(args.target_directory).resolve()
+
+# Testing
+# print(os.getcwd())
+# print(sfile.resolve())
+# print(tdir.resolve())
+
+# print(sfile)
+# print(tdir)
 
 if (not sfile.is_file()):
     msg = f"convert.py: {str(sfile)} : No such file" 
@@ -58,7 +67,3 @@ with open(tdir / fname, 'w') as f:
         one_line + '\n',
         f"# execute --command \"C:\\Windows\\System32\\WindowsPowerShell\\{ver}\\powershell.exe -NoProfile -WindowStyle Hidden -Command \"{one_line}\"\""
     ])
-
-
-# print(os.path.dirname(os.path.abspath(__file__)))
-# os.chdir(os.path.dirname(os.path.abspath(__file__)))
