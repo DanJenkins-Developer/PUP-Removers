@@ -1,21 +1,12 @@
 # Files
 
-# Todo: Add shortcut files
-    # $shortcuts = @(
-    #     "C:\Users\$user\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\OneLaunch.lnk",
-    #     "C:\Users\$user\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\OneLaunchChromium.lnk",
-    #     "C:\Users\$user\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\OneLaunchUpdater.lnk",
-    #     "C:\Users\$user\desktop\OneLaunch.lnk"
-    # )
-
-
 #Get user dirctories on the system
 $userFolders = Get-ChildItem -Path 'C:\Users' -Directory;
-
 
 # Remove OneStart from downloads
 $fileFilter = 'OneStart*';
 
+# Todo: Add shortcut files
 # $shortcuts = @(
 #     '\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\OneLaunch.lnk',
 #     '\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\OneLaunchChromium.lnk',
