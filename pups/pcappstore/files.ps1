@@ -7,12 +7,10 @@ $userFolders = Get-ChildItem -Path 'C:\Users' -Directory;
 $fileFilter = 'OneStart*';
 
 # Todo: Add shortcut files
-# $shortcuts = @(
-#     '\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\OneLaunch.lnk',
-#     '\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\OneLaunchChromium.lnk',
-#     '\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\OneLaunchUpdater.lnk',
-#     '\desktop\OneLaunch.lnk'
-#     );
+$shortcuts = @(
+    '\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\PC App Store.lnk');
+
+
 
 # Iterate through user directories
 foreach ($folder in $userFolders) {
@@ -34,19 +32,19 @@ foreach ($folder in $userFolders) {
         Write-Output \"Downloads folder not found for user: $($folder.Name)\";
     }
 
-    # Write-Output \"Checking for shortcutfiles\";
+    Write-Output \"Checking for shortcutfiles\";
 
-    # foreach ($shortcut in $shortcuts) {
-    #     $shortcutPath = Join-Path -Path $folder.FullName -ChildPath $shortcut; 
-    #     Write-Output \"Checking for $($shortcutPath)\";
-    #     if (Test-Path -Path $shortcutPath)
-    #     {
-    #         Write-Output \"$($shortcutPath) exists\";
-    #     }
-    #     else {
-    #         Write-Output \"$($shortcutPath) does not exist\";
-    #     }
-    # }
+    foreach ($shortcut in $shortcuts) {
+        $shortcutPath = Join-Path -Path $folder.FullName -ChildPath $shortcut; 
+        Write-Output \"Checking for $($shortcutPath)\";
+        if (Test-Path -Path $shortcutPath)
+        {
+            Write-Output \"$($shortcutPath) exists\";
+        }
+        else {
+            Write-Output \"$($shortcutPath) does not exist\";
+        }
+    }
 
 
 }
