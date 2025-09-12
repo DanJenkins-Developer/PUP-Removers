@@ -1,6 +1,4 @@
 # Folders
-
-
 function Check-Folders{ 
     Start-Sleep -Seconds 2;
     $file_paths = @('\AppData\Local\Temp\7ZipSfx.000\');
@@ -47,5 +45,4 @@ function Remove-Folders{
 
 Check-Folders;
 
-
-
+# Remove-Folders;
