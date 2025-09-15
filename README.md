@@ -2,7 +2,7 @@ Use the scripts under "pups" to remove potentially unwanted applications. Curren
 
 <hr>
 
-Use the reducePS tool under "utilities" to convert a powershell script to one line. 
+Scripts can easily be converted to one line using the reducePS tool under "utilities". 
 ```
 usage: reducePS.py [-h] source_file target_directory
 
