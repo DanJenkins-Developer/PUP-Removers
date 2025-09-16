@@ -2,12 +2,10 @@
 
 # Dan Jenkins 09/04/25
 #
-# Helper utility to convert Powershell scripts to one line to be used in Elastic response actions.
-# There's probably already a tool for this, but reinventing the wheel can be fun.
+# Helper program to convert Powershell scripts to one line for use with -Command / -c parameter.
 # 
-# The initial version of this program removes white space characters and comments from scripts,
-# but otherwise assumes that the original script is in a format that, once converted 
-# into a single line, will execute correctly when passed to the -Command / -c parameter. 
+# The program does not check for syntax and assumes that the original script is in a format that, once converted 
+# into a single line, will execute correctly when passed to the -Command / -c. Comments are removed from scripts.
 
 def lineConditionsMet(l : str):
     met = True
