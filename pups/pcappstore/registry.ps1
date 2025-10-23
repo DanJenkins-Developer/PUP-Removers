@@ -2,7 +2,7 @@
 
 # Software reg
 Function registry_software {
-    $reg_paths = @("\software\PCAppStore", '\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\PCAppStore');
+    $reg_paths = @('\software\PCAppStore', '\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\PCAppStore');
 
     # iterate through users for onestart related registry keys and removes them
     foreach ($registry_hive in (get-childitem registry::hkey_users)) {
@@ -11,6 +11,7 @@ Function registry_software {
             if (test-path $path) {
                 Remove-item -Path $path -Recurse -Force;
                 Write-Output \"$path has been removed.\";
+                # Write-Output \"$path Is here.\";
             }
         }
     }
