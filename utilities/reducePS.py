@@ -31,11 +31,11 @@ tdir = Path(args.target_directory).resolve()
 
 # Check if the user provided arguments exist.
 if (not sfile.is_file()):
-    msg = f"convert.py: {str(sfile)} : No such file" 
+    msg = f"reducePS: {str(sfile)} : No such file" 
     exit(msg)
 
 if (not tdir.is_dir()):
-    msg = f"convert.py: {str(tdir)} : No such directory"
+    msg = f"reducePS: {str(tdir)} : No such directory"
     exit(msg)
 
 # Open source file.
