@@ -31,8 +31,10 @@ foreach ($folder in $userFolders) {
         $files = Get-ChildItem -Path $downloadsPath -Filter $fileFilter -Force -ErrorAction SilentlyContinue;
         foreach($file in $files) {
             try {
-                Remove-Item -Path $file.FullName -Recurse -Force -ErrorAction Stop;
-                Write-Output \"$($file.FullName) has been deleted.\";
+                # Remove-Item -Path $file.FullName -Recurse -Force -ErrorAction Stop;
+                # Write-Output \"$($file.FullName) has been deleted.\";
+
+                Write-Output \"$($file.FullName) is here.\";
             }
             catch {
                  Write-Output \"Could not delete $($file.FullName): $_\";

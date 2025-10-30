@@ -7,10 +7,10 @@ foreach ($registry_hive in (get-childitem registry::hkey_users)) {
     foreach ($regpath in $reg_paths){
         $path = $registry_hive.pspath + $regpath;
         if (test-path $path) {
-            Remove-item -Path $path -Recurse -Force;
-            Write-Output \"$path has been removed.\";
+            # Remove-item -Path $path -Recurse -Force;
+            # Write-Output \"$path has been removed.\";
 
-            # Write-Output \"$path exists.\";
+            Write-Output \"$path exists.\";
         }
     }
 }
@@ -27,10 +27,10 @@ foreach ($registry_hive in (Get-ChildItem registry::hkey_users)) {
         foreach ($pattern in $reg_properties) {
             $matchedProps = $allProps | Where-Object { $_ -like $pattern };
             foreach ($prop in $matchedProps) {
-                Remove-ItemProperty -Path $path -Name $prop;
-                Write-Output \"$path\$prop registry property value has been removed.\";
+                # Remove-ItemProperty -Path $path -Name $prop;
+                # Write-Output \"$path\$prop registry property value has been removed.\";
 
-                # Write-Output \"$path\$prop registry property value is here.\";
+                Write-Output \"$path\$prop registry property value is here.\";
             }
         }
     }
