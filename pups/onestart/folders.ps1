@@ -11,10 +11,10 @@ foreach ($folder in (Get-ChildItem C:\Users)) {
         # Debugging output
         Write-Output \"Checking path: $path\";
         if (Test-Path $path) {
-            # Remove-Item -Path $path -Recurse -Force -ErrorAction SilentlyContinue;
+            Remove-Item -Path $path -Recurse -Force -ErrorAction SilentlyContinue;
             if (-not (Test-Path $path)) {
-                # Write-Output \"$path has been deleted.\";
-                Write-Output \"$path is here.\";
+                Write-Output \"$path has been deleted.\";
+                # Write-Output \"$path is here.\";
             } else {
                 Write-Output \"$path could not be deleted.\";
             }
